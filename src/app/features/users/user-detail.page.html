@@ -1,0 +1,20 @@
+<div class="container">
+  <app-header *ngIf="user() as u" [title]="u.name" subtitle="Informations complètes sur l’utilisateur.">
+    <button class="btn" routerLink="/users">Retour</button>
+  </app-header>
+
+  <div class="card" *ngIf="user() as u; else loading">
+    <p><strong>Nom :</strong> {{ u.name }}</p>
+    <p><strong>Email :</strong> {{ u.email }}</p>
+    <p><strong>Téléphone :</strong> {{ u.phone }}</p>
+    <p><strong>Entreprise :</strong> {{ u.company.name }}</p>
+
+    <button class="btn" routerLink="/users" style="margin-top:1rem;">
+      ← Retour
+    </button>
+  </div>
+
+  <ng-template #loading>
+    <div class="card">Chargement...</div>
+  </ng-template>
+</div>

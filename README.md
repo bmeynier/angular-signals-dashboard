@@ -1,59 +1,181 @@
-# AngularSingalsPlayground2
+# 🔥 Angular Signals Dashboard — Demo App (Angular 19/20)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+<p> 
+<img src="https://img.shields.io/badge/Angular-19%2B-dd0031?logo=angular&logoColor=white" /> 
+<img src="https://img.shields.io/badge/Signals-Enabled-blue?logo=angular" /> 
+<img src="https://img.shields.io/badge/Status-Active-brightgreen" /> 
+<img src="https://img.shields.io/badge/License-MIT-yellow" /> 
+<img src="https://img.shields.io/badge/Maintained-Yes-success" /> 
+</p>
 
-## Development server
+Une application **Angular (Standalone + Signals)** moderne et professionnelle,
+construite pour démontrer :
 
-To start a local development server, run:
+- la gestion d’état avec **Signals**
+- les stores réactifs
+- la communication temps réel via **WebSocket**
+- les performances (Virtual Scroll maison)
+- une architecture claire **features / shared / core**
+- un design Dashboard premium (style Linear / Stripe)
+- Ce projet me sert de **laboratoire technique** et de **portfolio Angular avancé.**
 
+---
+
+## 🌟 Démo (screenshots)
+
+![alt text](image.png)
+
+---
+
+## 🚀 Technologies & Concepts utilisés
+Frontend
+
+- Angular 20 (Standalone Components)
+- Angular Signals : signal, computed, effect
+- HttpClient
+- RxJS (WebSocketSubject)
+- Web Workers
+- Virtual Scroll maison (20 000 items)
+- SCSS global + design Dashboard premium
+
+---
+
+## 🧱 Architecture
 ```bash
+app/
+    core/
+        workers/    
+    shared/
+        ui/
+        stores/
+    features/
+        counter/
+        users/
+        dashboard/
+        realtime/
+        big-list/
+```
+
+---
+
+## 📦 Installation & lancement
+```bash
+git clone <repo-url>
+cd angular-signals-dashboard
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Application :
+👉 http://localhost:4200/
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🧭 Navigation principale
 
+La navbar donne accès aux pages suivantes :
+
+**📊 Dashboard**
+- Vue d’ensemble du state global
+- Compteur Signals
+- Dernière valeur WebSocket
+- Nombre d’utilisateurs
+- Virtual Scroll intégré
+
+**➕ Counter**
+- Store Signals complet :
+- count
+- computed : doubled, tripled
+- isEven
+- lastChange
+- actions : increment, decrement, reset…
+
+**👥 Users**
+- Chargement HTTP (jsonplaceholder)
+- Signals store : loading, error, users, selectedUser
+- Page détail utilisateur dynamique (URL param)
+
+**⚡ Temps réel**
+- WebSocket via RxJS
+- Stabilisation via Signals
+- Dernière valeur reçue
+
+**📜 Big List**
+- Virtual scroll haute performance (20 000 items)
+- Mise à jour en continu via interval
+- Calcul en Signals (startIndex, endIndex, visibleItems)
+
+---
+
+## 🧩 Stores Signals (exemple)
 ```bash
-ng generate component component-name
+@Injectable({ providedIn: 'root' })
+export class CounterStore {
+private \_count = signal(0);
+private \_lastChange = signal<Date | null>(null);
+
+readonly count = computed(() => this.\_count());
+readonly doubled = computed(() => this.\_count() _ 2);
+readonly tripled = computed(() => this.\_count() _ 3);
+readonly isEven = computed(() => this.\_count() % 2 === 0);
+
+increment() {
+this.\_count.update(n => n + 1);
+this.\_lastChange.set(new Date());
+}
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🎨 UI / UX
 
-## Building
+Design inspiré des SaaS modernes :
 
-To build the project run:
+- Navbar minimaliste
+- Composant PageHeader réutilisable
+- Cards premium (hover, ombre, arrondis)
+- Typographie Inter
+- Layout centré (.container)
+- Grilles responsive
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📚 Objectifs pédagogiques
 
-## Running unit tests
+Ce projet m’a permis de pratiquer :
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Signals & dérivations d’état
+- Architecture scalable
+- WebSocket temps réel (RxJS + Signals)
+- Virtual Scroll performant
+- Web Workers Angular
+- Standalone Components
+- UI Dashboard professionnelle
+- Stores type “Zustand/Ngrx but Signals”
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 📌 Améliorations futures
 
-For end-to-end (e2e) testing, run:
+- Mode Dark / Light
+- Charts (ECharts, ngx-charts)
+- Auth Firebase
+- Skeleton loaders
+- Tests unitaires (Jest)
+- Lazy loading avancé
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 👤 Auteur
 
-## Additional Resources
+**Brenda Meynier**
+Développeuse Angular / Python • Freelance
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🔗 LinkedIn : https://www.linkedin.com/in/brenda-m-829ab978/
+
+---
+
+## ⭐ Soutenir le projet
+
+Si ce projet t’a inspiré, **laisse une étoile ⭐ sur le repo GitHub !**

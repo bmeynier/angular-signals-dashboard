@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+/* --------------------
+   Global Reset
+-------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f7f7;
+    color: #222;
+}
+
+/* Colors */
+:root {
+    --primary: #3b82f6;
+    /* Bleu moderne */
+    --primary-dark: #2563eb;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+}
+
+/* --------------------
+   Layout helpers
+-------------------- */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --------------------
+   Card générique
+-------------------- */
+.card {
+    background: white;
+    padding: 1.75rem;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+    transition: box-shadow .2s ease, transform .1s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.card h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.card-value {
+    margin-top: .5rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.card-sub {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* --------------------
+   Buttons
+-------------------- */
+.btn {
+    padding: 0.45rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+    }
+}
+
+.btn-secondary {
+    padding: 0.45rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background: #e8e5e0;
+    color: #544f48;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+        background: #dcd8d2;
+        transform: translateY(-2px);
+    }
+}

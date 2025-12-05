@@ -1,0 +1,21 @@
+.viewport {
+  height: 400px;
+  overflow-y: auto;
+  position: relative;   // IMPORTANT : nécessaire pour position:absolute
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.spacer {
+  width: 100%;
+}
+
+.visible-row {
+  position: absolute;    // Les lignes se positionnent dans .viewport
+  height: 24px;
+  line-height: 24px;
+  padding: 0 8px;
+  border-bottom: 1px solid #eee;
+  background: white;     // Pour les superpositions
+  font-size: 13px;
+}

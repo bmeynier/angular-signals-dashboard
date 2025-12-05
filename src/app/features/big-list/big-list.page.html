@@ -1,0 +1,19 @@
+<div class="container">
+  <app-header title="Big List" [titleVisible]="titleVisible" subtitle="Aperçu global des données en temps réel."></app-header>
+
+  <div class="card">
+
+    <p class="section-title">Liste de 20 000 lignes</p>
+
+    <p>Seules les lignes visibles sont rendues (perf ++).</p>
+
+    <div class="viewport" (scroll)="onScroll($event)">
+      <div class="spacer" [style.height.px]="totalHeight()"></div>
+
+      <div class="visible-row" *ngFor="let item of visibleItems(); trackBy: trackById" [style.top.px]="item.offset">
+        ID : {{ item.data.id }} — {{ item.data.value }}
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <app-header title="Temps Réel" subtitle="WebSocket + Signals avec mise à jour automatique."></app-header>
+
+  <div class="card">
+    <ul>
+      <li *ngFor="let trade of trades()">
+        <strong [style.color]="trade.side === 'BUY' ? 'green' : 'red'">
+          {{ trade.side }}
+        </strong>
+        —
+        {{ trade.symbol }}
+        —
+        {{ trade.price | number:'1.2-2' }}
+      </li>
+    </ul>
+  </div>
+</div>

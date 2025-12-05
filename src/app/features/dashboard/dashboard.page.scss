@@ -1,0 +1,29 @@
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.page-desc {
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+/* GRID */
+.dashboard-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-bottom: 2rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.card-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}

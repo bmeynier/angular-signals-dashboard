@@ -1,0 +1,19 @@
+<div class="container">
+  <app-header title="Utilisateurs" subtitle="Liste des utilisateurs chargée via HTTP + Signals."></app-header>
+
+    <div class="card">
+
+      <p *ngIf="userStore.loading()">Chargement...</p>
+      <p *ngIf="userStore.error()" style="color: red;">{{ userStore.error() }}</p>
+
+      <ul>
+        <li *ngFor="let user of userStore.users()">
+          <a routerLink="/users/{{ user.id }}" style="text-decoration:none; color:var(--primary); font-weight:500;">
+            {{ user.name }}
+          </a>
+          <span style="color: var(--text-light)"> — {{ user.email }}</span>
+        </li>
+      </ul>
+
+    </div>
+</div>

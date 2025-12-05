@@ -1,0 +1,51 @@
+<div class="container">
+
+  <app-header title="Dashboard" subtitle="Aperçu global des données en temps réel."></app-header>
+
+  <!-- GRID -->
+  <div class="dashboard-grid">
+
+    <!-- Compteur -->
+    <div class="card">
+      <h2>Compteur</h2>
+      <p class="card-value">{{ counterStore.count() }}</p>
+      <p class="card-sub">
+        x2 = {{ counterStore.doubled() }} |
+        x3 = {{ counterStore.tripled() }}
+      </p>
+
+      <div class="card-actions">
+        <button class="btn" (click)="counterStore.increment()">+1</button>
+        <button class="btn" (click)="counterStore.incrementBy(5)">+5</button>
+        <button class="btn-secondary" (click)="counterStore.decrement()">–1</button>
+        <button class="btn-secondary" (click)="counterStore.reset()">Reset</button>
+      </div>
+    </div>
+
+    <!-- Utilisateurs -->
+    <div class="card">
+      <h2>Utilisateurs</h2>
+      <p class="card-value">{{ usersCount }}</p>
+      <p class="card-sub">Nombre total récupéré via API JSONPlaceholder.</p>
+    </div>
+
+    <!-- WebSocket -->
+    <div class="card">
+      <h2>WebSocket</h2>
+      <p class="card-value">
+        {{ socketStore.lastValue() ?? '—' }}
+      </p>
+      <p class="card-sub">Valeur reçue en direct.</p>
+    </div>
+
+  </div>
+
+  <!-- Big List Preview -->
+  <div class="card full-width">
+    <h2>Big List</h2>
+    <p class="card-sub">Virtual Scroll – 20 000 lignes</p>
+
+    <app-big-list-page [titleVisible]="false"></app-big-list-page>
+  </div>
+
+</div>

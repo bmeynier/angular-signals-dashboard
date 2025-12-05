@@ -1,0 +1,16 @@
+<div class="container">
+  <app-header title="Compteur" subtitle="Démo Signals : état local + store + computed + actions."></app-header>
+
+  <div class="card">
+    <p>Valeur actuelle : <strong>{{ counter.count() }}</strong></p>
+    <p>x2 : <strong>{{ counter.doubled() }}</strong></p>
+    <p>x3 : <strong>{{ counter.tripled() }}</strong></p>
+
+    <div style="margin-top: 1rem; display: flex; gap: .5rem;">
+      <button class="btn" (click)="counter.increment()">+1</button>
+      <button class="btn" (click)="counter.incrementBy(5)">+5</button>
+      <button class="btn-secondary" (click)="counter.decrement()">–1</button>
+      <button class="btn-secondary" (click)="counter.reset()">Reset</button>
+    </div>
+  </div>
+</div>
